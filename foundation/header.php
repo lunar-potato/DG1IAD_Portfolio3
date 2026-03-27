@@ -118,10 +118,4 @@ if (session_status() === PHP_SESSION_NONE) {
             <?php endif; ?>
         </div>
     </nav>
-    <footer class="footer">
-        <div class="container">
-            <?php include ('../foundation/footer.php'); ?>
-        </div>
-    </footer>
-</body>
 </html>
