@@ -68,7 +68,7 @@ try {
 
         <div style="margin-bottom: 20px;">
             <label style="display: block; font-weight: bold; margin-bottom: 8px; color: #4a5568;">Education</label>
-            <textarea name="profile" rows="5" style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; resize: vertical;"><?php echo htmlspecialchars($currentUser['education'] ?? ''); ?></textarea>
+            <textarea name="education" rows="4" style="width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; resize: vertical;"><?php echo htmlspecialchars($currentUser['education'] ?? ''); ?></textarea>
         </div>
 
         <div style="margin-bottom: 20px;">
