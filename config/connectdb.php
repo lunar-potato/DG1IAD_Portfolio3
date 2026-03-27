@@ -10,7 +10,9 @@ if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.
     $username = 'root';
     $password = '';
 } else {
-    // university server (credentials in credentials.php to prevent unauthorized access)
+    // university server (credentials in credentials.php to prevent unauthorized access) 
+    require_once 'credentials.php'; 
+    
     $db_host = $livedb_host;
     $db_name = $livedb_name;
     $username = $liveusername;
