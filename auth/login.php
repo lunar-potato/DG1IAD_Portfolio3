@@ -7,47 +7,48 @@ require_once ("../config/connectdb.php");
 
 $error = '';
 
-	//checking if form has been submitted
-	if (isset($_POST['submitted'])){
-		if ( !isset($_POST['email'] , $_POST['password']) ) {
-		// ensure that user have filled in all fields
-		 exit('Please fill in all fields!');
-	    } try {
-		// query to check if exists
-		//using prepare/bindparameter to prevent SQL injection.
-			$stat = $db->prepare('SELECT password FROM user WHERE email = ?');
-			$stat->execute(array($_POST['email']));
-		    
-			// fetch the result row and check 
-			if ($stat->rowCount()>0){  // matching email
-				$row=$stat->fetch();
+//checking if form has been submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
+    $email = trim($_POST['email'] ?? '');
+    $password = $_POST['password'] ?? '';
 
+    // ensure that user have filled in all fields
+    if (empty($email) || empty($password)) {
+         $error = 'Please fill in all fields!';
+    } else {
+        try {
+            $stat = $db->prepare('SELECT id, email, password FROM cvs WHERE email = ?');
+            $stat->execute(array($email));
+            
+            // fetch the result row and check 
+            if ($row = $stat->fetch()){  
+                
                 // check if matching password
-				if (password_verify($_POST['password'], $row['password'])){ 				
-					$_SESSION["email"]=$_POST['email'];
-					header("Location:login.php");
-					exit();
-				
-				} else {
-				 $error = "<p style='color:red'>Password does not match </p>";
- 			    }
-		    } else {
-			 //else display an error
-			  $error = "<p style='color:red'>Email not found </p>";
-		    }
-		}
-		catch(PDOException $ex) {
-			echo("Failed to connect to the database.<br>");
-			echo($ex->getMessage());
-			exit;
-		}
-
-  }
+                if (password_verify($password, $row['password'])){                
+                    // start the session with their ID and Email
+                    $_SESSION["userid"] = $row['id'];
+                    $_SESSION["email"] = $row['email'];
+                    
+                    // redirect to the private dashboard
+                    header("Location: ../user/updateCV.php");
+                    exit();
+                } else {
+                    $error = "Password does not match.";
+                }
+            } else {
+              $error = "Email not found.";
+            }
+        }
+        catch(PDOException $ex) {
+            $error = "Failed to connect to the database.<br>" . $ex->getMessage();
+        }
+    }
+}
 ?>
-<!-- a HTML part -->
 <html>
 <head>
-	<title>Aston CV - Log In</title>
+    <title>Aston CV - Log In</title>
     <style>
         body {
             margin: 0;
