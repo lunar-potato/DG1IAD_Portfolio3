@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	        $stat->execute(array($name, $email, $password));
 	
 	        $id=$db->lastInsertId();
-	      echo "Congratulations! You are now registered. Your ID is: $id  "; 
+	      $success = "Congratulations! You are now registered. Your ID is: $id  "; 
         } catch (PDOException $ex) {
             $error = "Sorry, a database error occurred! <br> Error details: <em>" . $ex->getMessage() . "</em>";
         }
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register - AstonCV</title>
+    <title>AstonCV - Sign Up</title>
     <style>
         body {
             margin: 0;
@@ -89,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         input {
             width: 100%;
             padding: 14px;
-            margin: 8px 0;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             box-sizing: border-box;
@@ -139,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .successBanner {
             margin-top: 24px;
+            margin-bottom: 10px;
             padding: 16px;
             background-color: #c6f6d5;
             border: 1px solid #9ae6b4;
@@ -151,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .errorBanner {
             margin-top: 24px;
+            margin-bottom: 10px;
             padding: 16px;
             background-color: #fed7d7;
             border: 1px solid #feb2b2;
@@ -165,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h2>Register</h2>
+        <h2>AstonCV Sign Up</h2>
         <?php if ($error): ?>
             <div class="errorBanner"><?php echo $error; ?></div>
         <?php endif; ?>
