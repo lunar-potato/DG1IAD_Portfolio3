@@ -26,3 +26,5 @@ AstonCV, a CV databased website
 - Home page 
 - Nav bar that links to main page and related pages
 - 
+
+C:\xampp\php\php.exe -S localhost:8000
