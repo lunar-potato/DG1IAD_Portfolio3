@@ -1,14 +1,18 @@
 <?php 
+// pull necessary files header and to connect to database
 require_once '../foundation/header.php';
 require_once '../config/connectdb.php';
 
 $cv = null;
 
+// fetch cv and display to homepage also grabbing id from url
 if (isset($_GET['id'])) {
     try {
+        // preventing sql injection
         $stmt = $db->prepare("SELECT * FROM cvs WHERE id = ?");
         $stmt->execute(array($_GET['id']));
         $cv = $stmt->fetch();
+        // catches if any errors happen
     } catch (PDOException $ex) {
         echo "<div class='errorBanner'>Database error: " . $ex->getMessage() . "</div>";
     }

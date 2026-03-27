@@ -7,7 +7,9 @@ $searchQuery = trim($_GET['q'] ?? '');
 
 if ($searchQuery) {
     try {
+        // search by name, programming using ? 
         $stmt = $db->prepare("SELECT id, name, email, keyprogramming FROM cvs WHERE name LIKE ? OR email LIKE ? OR keyprogramming LIKE ? ORDER BY id DESC");
+        // wildcards for partial matches 
         $likeQuery = '%' . $searchQuery . '%';
         $stmt->execute([$likeQuery, $likeQuery, $likeQuery]);
         $results = $stmt->fetchAll();

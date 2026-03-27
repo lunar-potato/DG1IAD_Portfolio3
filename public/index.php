@@ -1,8 +1,10 @@
 <?php
+// pull ui and connection to database
 require_once '../foundation/header.php';
 require_once '../config/connectdb.php';
 
 try {
+    // fetching all cvs to display on homepage
     $stmt = $db->query("SELECT id, name, email, keyprogramming FROM cvs ORDER BY id DESC");
     $cvs = $stmt->fetchAll();
 } catch (PDOException $ex) {
@@ -13,8 +15,10 @@ try {
 
 <div style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 <h1 style="text-align:center; margin-bottom: 40px; color: #2d3748;">Browse CVs</h1>
-
+ 
+<!-- grid ui to make it readable and modern -->
 <div class="cvGrid">
+    <!-- if statement to check if there are any existing cvs  -->
     <?php if (count($cvs) > 0) : ?>
         <?php foreach ($cvs as $cv) : ?>
             <div class="cvCard" style="margin: 6px;">
@@ -32,6 +36,7 @@ try {
             </div>
         <?php endforeach; ?> 
     <?php else : ?>
+        <!-- if no cvs found, redirect to register to sign up and make a cv  -->
         <p style="text-align:center; grid-column: 1 / -1;">
             No CVs found in the database yet. Be the first to <a href="../auth/register.php" style="color:#3182ce;">register</a>!
         </p>

@@ -1,6 +1,9 @@
 <?php 
+// start session to check whether user is logged in 
 session_start();
 
+// authorization
+// if no session id, they are not logged in and will be redirected to login page
 if (!isset($_SESSION['userid'])) {
     header("Location: ../auth/login.php");
     exit();
@@ -13,6 +16,7 @@ $userID = $_SESSION['userid'];
 $successMessage = '';
 $errorMessage = '';
 
+// form submissions and updating the database
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $keyprogramming = trim($_POST['keyprogramming'] ?? '');
     $profile = trim($_POST['profile'] ?? '');
@@ -28,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// fetches current user data and to fill form
 try {
     $fetchStmt = $db->prepare("SELECT * FROM cvs WHERE id = ?");
     $fetchStmt->execute(array($userID));

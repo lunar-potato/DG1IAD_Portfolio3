@@ -1,7 +1,9 @@
 <?php
 // start and immediately destroy the session to log out 
 session_start();
+session_unset();
 session_destroy();
+
 
 ?>
 

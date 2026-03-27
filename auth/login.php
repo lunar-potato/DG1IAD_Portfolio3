@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
          $error = 'Please fill in all fields!';
     } else {
         try {
+            // prevents sql injection by separating query from data
             $stat = $db->prepare('SELECT id, email, password FROM cvs WHERE email = ?');
             $stat->execute(array($email));
             
