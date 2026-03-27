@@ -18,6 +18,10 @@ if ($searchQuery) {
 ?>
 
 <style> 
+    body {
+        background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    }
+
     h1 {
         text-align:center;
         color: #2d3748;
@@ -80,7 +84,7 @@ if ($searchQuery) {
                         </h2>
                         <p>
                             <strong>Skills</strong>
-                            <?php echo htmlspecialchars($cv['keyprognameramming'] ?? 'N/A'); ?>
+                            <?php echo htmlspecialchars($cv['keyprognameramming'] ?? ''); ?>
                         </p>
                         <a href="cvDetails.php?id=<?php echo $cv['id']; ?>" class="btnPrimary">View CV</a>
                     </div>

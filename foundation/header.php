@@ -15,13 +15,18 @@ if (session_status() === PHP_SESSION_NONE) {
     <style>
         body {
             margin:  0;
+            padding: 0;
             font-family: 'Segoe UI', system-ui, sans-serif;
             background: #f5f7fa;
             color: #2d3748;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
         }
 
         .navbar {
-            background-color: #2d3748;
+            background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -62,6 +67,7 @@ if (session_status() === PHP_SESSION_NONE) {
             max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
+            margin-bottom: 0;
         }
 
         .cvGrid {

@@ -11,6 +11,7 @@ try {
 }
 ?>
 
+<div style="background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);">
 <h1 style="text-align:center; margin-bottom: 40px; color: #2d3748;">Browse CVs</h1>
 
 <div class="cvGrid">
@@ -36,7 +37,7 @@ try {
         </p>
     <?php endif; ?>
 </div>
-
+    </div>
     <?php 
     require_once '../foundation/footer.php'; 
     ?>

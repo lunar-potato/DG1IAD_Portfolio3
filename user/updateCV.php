@@ -37,7 +37,7 @@ try {
 }
 ?>
 
-<div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgb(0, 0, 0, 0.05);">
+<div style="max-width: 800px; margin: 0 auto; background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgb(0, 0, 0, 0.05);">
     <h1 style="color: #2d3748;margin-top: 0;">Update My CV</h1>
     <p style="color: #718096; margin-bottom: 30px;">Welcome, <?php echo htmlspecialchars($currentUser['name'] ?? 'User'); ?>!
     Fill out the details to complete your profile.

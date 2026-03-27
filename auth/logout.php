@@ -14,7 +14,7 @@ session_destroy();
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
             display: flex;
             min-height: 100vh;
             align-items: center;
