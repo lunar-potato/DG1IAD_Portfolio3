@@ -87,5 +87,5 @@ session_destroy();
     <div class="container">
         <h2>You have been logged out</h2>
         <p>You have successfully logged out</p>
-        <a href="../index.php"><button class="logoutBtn">Return to Home</button></a>
+        <a href="../public/index.php"><button class="logoutBtn">Return to Home</button></a>
     </div>

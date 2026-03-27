@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
             <p><strong>Key Programming Languages:</strong> <br>
                 <?php echo nl2br(htmlspecialchars($cv['keyprogramming'] ?? 'Not specified')); ?>
             </p>
-            <p><strong>Profile / Summary:</strong> <br>
+            <p><strong>Profile:</strong> <br>
                 <?php echo nl2br(htmlspecialchars($cv['profile'] ?? 'Not specified')); ?>
             </p>
             <p><strong>Education:</strong> <br>
