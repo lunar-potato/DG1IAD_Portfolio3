@@ -16,7 +16,7 @@ try {
 <div class="cvGrid">
     <?php if (count($cvs) > 0) : ?>
         <?php foreach ($cvs as $cv) : ?>
-            <div class="cvCard">
+            <div class="cvCard" style="margin: 6px;">
                 <h2 style="margin-top: 0; color: #2d3748;">
                     <?php echo htmlspecialchars($cv['name'] ?? 'Unknown Programmer'); ?>
                 </h2>

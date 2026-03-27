@@ -1,18 +1,28 @@
 <?php 
 
-$db_host = 'localhost';
-$db_name = 'astoncv';
-$username = 'root';
-$password = '';
 $charset = 'utf8mb4';
 
+// checking if running locally (XAMPP) or on university server
+if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '127.0.0.1' || $_SERVER['SERVER_PORT'] == '8000') {
+    // localhost
+    $db_host = 'localhost';
+    $db_name = 'astoncv';
+    $username = 'root';
+    $password = '';
+} else {
+    // university server (credentials in credentials.php to prevent unauthorized access)
+    $db_host = $livedb_host;
+    $db_name = $livedb_name;
+    $username = $liveusername;
+    $password = $livepassword;
+}
+
 try {
-	$db = new PDO("mysql:dbname=$db_name;host=$db_host", $username, $password); 
-	#$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db = new PDO("mysql:dbname=$db_name;host=$db_host;charset=$charset", $username, $password); 
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $ex) {
-	echo("Failed to connect to the database.<br>");
-	echo($ex->getMessage());
-	exit;
+    echo("Failed to connect to the database.<br>");
+    echo($ex->getMessage());
+    exit;
 }
 ?>
-
