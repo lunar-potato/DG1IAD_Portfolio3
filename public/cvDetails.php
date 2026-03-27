@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
         .container {
             max-width: 800px;
             margin: 40px auto;
-            background: white;
+            background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
             padding: 40px;
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
